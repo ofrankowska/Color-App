@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import { Link } from "react-router-dom";
-import { borderRadius } from '@material-ui/system';
+// import { borderRadius } from '@material-ui/system';
 
 const styles = {
     root: {
@@ -12,7 +12,7 @@ const styles = {
         overflow: "hidden",
         "& hover": {
             cursor: "pointer"
-        }
+        },
     },
     colors: {
         backgroundColor: "grey",
