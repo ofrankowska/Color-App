@@ -1,6 +1,5 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
-import { Link } from "react-router-dom";
 
 const styles = {
     root: {
@@ -9,7 +8,7 @@ const styles = {
         borderRadius: "5px",
         padding: "0.5rem",
         overflow: "hidden",
-        "& hover": {
+        "&:hover": {
             cursor: "pointer"
         },
     },
@@ -46,7 +45,7 @@ const styles = {
 }
 
 function MiniPalette(props) {
-    const { classes, paletteName, emoji, colors } = props;
+    const { classes, paletteName, emoji, colors, handleClick } = props;
     const miniColorsBoxes = colors.map(c => (
         <div
             style={{ backgroundColor: c.color }}
@@ -55,14 +54,14 @@ function MiniPalette(props) {
         </div>
     ))
     return (
-        <div className={classes.root}>
+        <div className={classes.root} onClick={handleClick}>
             <div className={classes.colors}>
                 {miniColorsBoxes}
             </div>
             <h5 className={classes.title}>
                 {paletteName} <span className={classes.emoji}>{emoji}</span>
             </h5>
-            
+
         </div>
     )
 }
