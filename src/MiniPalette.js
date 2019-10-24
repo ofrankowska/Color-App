@@ -1,7 +1,6 @@
 import React from 'react';
 import { withStyles } from '@material-ui/styles';
 import { Link } from "react-router-dom";
-// import { borderRadius } from '@material-ui/system';
 
 const styles = {
     root: {
@@ -15,8 +14,12 @@ const styles = {
         },
     },
     colors: {
-        backgroundColor: "grey",
-        
+        backgroundColor: "#dae1e4",
+        height: "150px",
+        width: "100%",
+        borderRadius: "5px",
+        overflow: "hidden"
+
     },
     title: {
         display: "flex",
@@ -31,18 +34,35 @@ const styles = {
     emoji: {
         marginLeft: ".5rem",
         fontSize: "1.5rem"
+    },
+    miniColor: {
+        height: "25%",
+        width: "20%",
+        display: "inline-block",
+        margin: "0 auto",
+        position: "relative",
+        marginBottom: "-4.5px"
     }
 }
 
 function MiniPalette(props) {
-    const { classes, paletteName, emoji } = props;
-    // const {colors, emoji, paletteName} = this.props;
+    const { classes, paletteName, emoji, colors } = props;
+    const miniColorsBoxes = colors.map(c => (
+        <div
+            style={{ backgroundColor: c.color }}
+            className={classes.miniColor}
+            key={c.id}>
+        </div>
+    ))
     return (
         <div className={classes.root}>
-            <div className={classes.colors}></div>
+            <div className={classes.colors}>
+                {miniColorsBoxes}
+            </div>
             <h5 className={classes.title}>
                 {paletteName} <span className={classes.emoji}>{emoji}</span>
             </h5>
+            
         </div>
     )
 }
