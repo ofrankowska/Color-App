@@ -1,15 +1,17 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar';
+import PaletteFooter from './PaletteFooter';
 import ColorBox from './ColorBox';
 
 class SingleColorPalette extends Component {
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = { format: "hex" };
 
         this._shades = this.gatherShades(this.props.palette, this.props.colorId);
 
         this.gatherShades = this.gatherShades.bind(this);
+        this.changeFormat = this.changeFormat.bind(this);
     }
     gatherShades(palette, colorId) {
         let shades = [];
@@ -23,10 +25,16 @@ class SingleColorPalette extends Component {
         }
         return shades;
     }
+    changeFormat(format) {
+        this.setState({ format })
+    }
+
     render() {
+        const { format } = this.state;
+        const {paletteName, emoji} = this.props.palette;
         const colorBoxes = this._shades.map(c => (
             <ColorBox
-                background={c["hex"]}
+                background={c[format]}
                 name={c["name"]}
                 key={c["id"]}
                 colorId={c["id"]}
@@ -36,16 +44,13 @@ class SingleColorPalette extends Component {
         return (
             <div className="Palette">
                 <Navbar
-                    level={500}
-                    changeLevel={this.changeLevel}
-                    handleChange={this.changeFormat} />
+                    handleChange={this.changeFormat}
+                    hasSlider={false}
+                />
                 <div className="Palette-colors">
                     {colorBoxes}
                 </div>
-                <footer className="Palette-footer">
-                    name
-                <span className="emoji">emoji</span>
-                </footer>
+                <PaletteFooter paletteName={paletteName} emoji={emoji} />
             </div>
 
         )
