@@ -2,7 +2,49 @@ import React, { Component } from 'react'
 import Navbar from './Navbar';
 import PaletteFooter from './PaletteFooter';
 import ColorBox from './ColorBox';
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
+import { withStyles } from '@material-ui/styles';
+
+const styles = {
+    palette: {
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+    },
+    paletteColors: {
+        height: "87%",
+    },
+    goBack: {
+        width: "20%",
+        height: "50%",
+        margin: "0 auto",
+        display: "inline-block",
+        position: "relative",
+        cursor: "pointer",
+        textTransform: "uppercase",
+        marginBottom: "-3.9px",
+        backgroundColor: "rgb(56, 56, 58)",
+        "& a": {
+            background: "rgba(255, 255, 255, 0.062)",
+            position: "absolute",
+            width: "100px",
+            height: "30px",
+            display: "inline-block",
+            top: "50%",
+            left: "50%",
+            marginLeft: "-50px",
+            marginTop: "-15px",
+            textAlign: "center",
+            outline: "none",
+            fontSize: "1.5rem",
+            lineHeight: "30px",
+            color: "white",
+            border: "none",
+            cursor: "pointer",
+            textDecoration: "none",
+        }
+    }
+}
 
 class SingleColorPalette extends Component {
     constructor(props) {
@@ -32,7 +74,8 @@ class SingleColorPalette extends Component {
 
     render() {
         const { format } = this.state;
-        const {paletteName, emoji, id} = this.props.palette;
+        const { paletteName, emoji, id } = this.props.palette;
+        const { classes } = this.props;
         const colorBoxes = this._shades.map(c => (
             <ColorBox
                 background={c[format]}
@@ -43,23 +86,23 @@ class SingleColorPalette extends Component {
             />
         ))
         return (
-            <div className="SingleColorPalette Palette">
+            <div className={`SingleColorPalette ${classes.palette}`}>
                 <Navbar
                     handleChange={this.changeFormat}
                     hasSlider={false}
                 />
-                <div className="Palette-colors">
+                <div className={classes.paletteColors}>
                     {colorBoxes}
-                    <div className="go-back ColorBox">
-                        <Link to={`/palette/${id}`} className="back-button">GO BACK</Link>
+                    <div className={classes.goBack}>
+                        <Link to={`/palette/${id}`}>GO BACK</Link>
                     </div>
                 </div>
                 <PaletteFooter paletteName={paletteName} emoji={emoji} />
-                
+
             </div>
 
         )
     }
 }
 
-export default SingleColorPalette;
+export default withStyles(styles)(SingleColorPalette);
