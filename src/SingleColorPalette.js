@@ -39,7 +39,7 @@ class SingleColorPalette extends Component {
                 name={c["name"]}
                 key={c["name"]}
                 colorId={c["id"]}
-                showLink={false}
+                showingFullPalette={false}
             />
         ))
         return (
