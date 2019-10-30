@@ -5,17 +5,16 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import { ValidatorForm, TextValidator } from "react-material-ui-form-validator";
-
+import 'emoji-mart/css/emoji-mart.css';
+import { Picker } from 'emoji-mart';
 
 class PaletteMetaForm extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            open: false,
+            open: true,
             newPaletteName: ""
         };
-        this.handleClose = this.handleClose.bind(this);
-        this.handleClickOpen = this.handleClickOpen.bind(this);
         this.handleChange = this.handleChange.bind(this);
     }
     componentDidMount() {
@@ -30,19 +29,15 @@ class PaletteMetaForm extends Component {
             [evt.target.name]: evt.target.value
         });
     }
-    handleClickOpen() {
-        this.setState({ open: true });
-    }
-    handleClose() {
-        this.setState({ open: false });
-    }
     render() {
         const { open, newPaletteName } = this.state;
+        const {hideForm, handleSubmit} = this.props;
         return (
-                <Dialog open={open} onClose={this.handleClose} aria-labelledby="form-dialog-title" fullWidth="300px">
+                <Dialog open={open} onClose={hideForm} aria-labelledby="form-dialog-title" fullWidth>
                     <DialogTitle id="form-dialog-title">Choose a palette name</DialogTitle>
+                    <Picker />
                     <ValidatorForm
-                        onSubmit={() => this.props.handleSubmit(newPaletteName)}
+                        onSubmit={() => handleSubmit(newPaletteName)}
                     >
                         <DialogContent>
                             <TextValidator
@@ -58,7 +53,7 @@ class PaletteMetaForm extends Component {
 
                         </DialogContent>
                         <DialogActions>
-                            <Button onClick={this.handleClose} color="primary">
+                            <Button onClick={hideForm} color="primary">
                                 Cancel
                     </Button>
                             <Button variant='contained' color='primary' type='submit'>
