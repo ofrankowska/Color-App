@@ -1,6 +1,15 @@
 import sizes from "./sizes";
 import background from "./Confetti-Doodles.svg"
 export default {
+    "@global": {
+        ".fade-exit": {
+            opacity: 1,
+        },
+        ".fade-exit-active": {
+            opacity: 0,
+            transition: "opacity 0.5s ease-out"
+        }
+    },
     root: {
         backgroundColor: "#0C1EAA",
         backgroundImage: `url(${background})`,
