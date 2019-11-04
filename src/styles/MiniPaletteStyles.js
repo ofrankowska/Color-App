@@ -41,11 +41,6 @@ export default {
             position: "relative",
             marginBottom: "-4.5px"
         },
-        delete: {
-            // position: "absolute",
-            // zIndex: 1,
-            // right: 0
-        },
         deleteIcon: {
             color: "white",
             backgroundColor: "#eb3d30",
