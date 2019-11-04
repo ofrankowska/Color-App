@@ -1,9 +1,23 @@
+import sizes from "./sizes";
+
 export default {
     Navbar: {
         display: "flex",
         alignItems: "center",
         justifyContent: "flex-start",
         height: "6vh",
+        [sizes.down("md")]: {
+
+        },
+        [sizes.down("xs")]: {
+            paddingBottom: "10px",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            height: "12vh",
+
+        },
+
     },
     logo: {
         marginRight: "15px",
@@ -18,7 +32,21 @@ export default {
             textDecoration: "none",
             color: "black",
 
-        }
+        },
+        [sizes.down("md")]: {
+            fontSize: "14px",
+            fontWeight: 500,
+            padding: "0 10px",
+
+        },
+        [sizes.down("xs")]: {
+            width: "100%",
+            justifyContent: "center",
+            padding: "5px 10px",
+            marginBottom: "9px"
+
+        },
+
     },
     slider: {
         width: "340px",
@@ -44,10 +72,25 @@ export default {
             backgroundColor: "rgb(218, 0, 84)",
             border: "2px solid rgb(218, 0, 84)"
         },
+        [sizes.down("md")]: {
+            width: "210px",
+            margin: "0 5px",
+        },
+
     },
     selectContainer: {
         marginLeft: "auto",
-        marginRight: "1rem"
+        marginRight: "1rem",
+        [sizes.down("md")]: {
+            marginRight: "0.3rem",
+        },
+        [sizes.down("xs")]: {
+            marginLeft: 0
+
+        },
+
+
+
     }
 
 }
