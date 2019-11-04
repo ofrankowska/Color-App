@@ -1,13 +1,21 @@
 import sizes from "./sizes";
-
+import background from "./Confetti-Doodles.svg"
 export default {
     root: {
-        backgroundColor: "blue",
-        minHeight: "100vh",
+        backgroundColor: "#0C1EAA",
+        backgroundImage: `url(${background})`,
+         /* background by SVGBackgrounds.com */
+        height: "100vh",
         display: "flex",
         alignItems: "flex-start",
         justifyContent: "center",
-        paddingBottom: "23vh"
+        overflow: "scroll",
+        "& h1": {
+            fontSize: "2rem",
+            [sizes.down("xs")]: {
+                fontSize: "1.5rem"
+            },
+        },
     },
     container: {
         width: "60%",
@@ -36,6 +44,7 @@ export default {
         boxSizing: "border-box",
         width: "100%",
         display: "grid",
+        paddingBottom: "10vh",
         gridTemplateColumns: "repeat(3, 30%)",
         gridGap: "2.5rem",
         [sizes.down("lg")]: {
