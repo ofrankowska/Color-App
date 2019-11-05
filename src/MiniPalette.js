@@ -24,7 +24,7 @@ class MiniPalette extends PureComponent {
             <div
                 style={{ backgroundColor: c.color }}
                 className={classes.miniColor}
-                key={c.id}>
+                key={c.name}>
             </div>
         ))
         return (
