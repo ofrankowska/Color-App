@@ -17,6 +17,7 @@ class PaletteMetaForm extends Component {
         };
         this.handleChange = this.handleChange.bind(this);
         this.showEmojiPcker = this.showEmojiPcker.bind(this);
+        this.savePalette = this.savePalette.bind(this);
     }
     componentDidMount() {
         ValidatorForm.addValidationRule("isPaletteNameUnique", value =>
@@ -30,18 +31,22 @@ class PaletteMetaForm extends Component {
             [evt.target.name]: evt.target.value
         });
     }
+    savePalette(emoji){
+        this.props.handleSubmit(this.state.newPaletteName, emoji);
+        this.setState({ stage: "" })
+    }
     showEmojiPcker() {
         this.setState({ stage: "emoji" })
     }
     render() {
         const { newPaletteName, stage } = this.state;
-        const { hideForm, handleSubmit } = this.props;
+        const { hideForm } = this.props;
         return (
             <div>
                 <Dialog open={stage === "emoji"} onClose={hideForm}>
                     <DialogTitle id="form-dialog-title">Pick a Palette Emoji</DialogTitle>
                     <Picker
-                        onSelect={(emoji) => handleSubmit(newPaletteName, emoji.native)}
+                        onSelect={(emoji) => this.savePalette(emoji.native)}
                         title="Pick a Palette Emoji" />
                 </Dialog>
                 <Dialog open={stage === "form"} onClose={hideForm} aria-labelledby="form-dialog-title" fullWidth>
