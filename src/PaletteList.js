@@ -55,7 +55,7 @@ class PaletteList extends Component {
                             <CSSTransition key={p.id} classNames="fade" timeout={500}>
                                 <MiniPalette {...p} key={p.id} 
                                 openDialog = {this.openDialog}
-                                    handleClick={() => this.goToPalette(p.id)}
+                                    goToPalette={this.goToPalette}
                                 />
                             </CSSTransition>
                         ))}
