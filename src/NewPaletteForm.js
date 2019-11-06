@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PaletteFormNav from "./PaletteFormNav";
 import ColorPickerForm from "./ColorPickerForm";
 import DraggableColorList from "./DraggableColorList";
+import seedColors from "./seedColors";
 
 import { withStyles } from "@material-ui/core/styles";
 import Drawer from "@material-ui/core/Drawer";
@@ -56,10 +57,17 @@ class NewPaletteForm extends Component {
         this.setState({ colors: [] });
     }
     addRandomColor() {
-        //pick random color from existing palettes
-        const allColors = this.props.palettes.map(p => p.colors).flat();
-        var rand = Math.floor(Math.random() * allColors.length);
-        const randomColor = allColors[rand];
+        //pick random color from seedColors
+        const allColors = seedColors.map(p => p.colors).flat();
+        let rand;
+        let randomColor;
+        let isDuplicateColor = true;
+        while (isDuplicateColor) {
+            rand = Math.floor(Math.random() * allColors.length);
+            randomColor = allColors[rand];
+            isDuplicateColor = this.state.colors.some(color => color.name === randomColor.name);
+            console.log(isDuplicateColor, randomColor.name)
+        }
         this.setState({ colors: [...this.state.colors, randomColor] });
     }
     handleSubmit(newPaletteName, emoji) {
