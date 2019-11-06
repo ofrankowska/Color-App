@@ -9,6 +9,8 @@
     "array-move": "^2.2.0",
     "chroma-js": "^2.0.6",
     "emoji-mart": "^2.11.1",
+    "gh-pages": "^2.1.1",
+    "i": "^0.3.6",
     "rc-slider": "^8.7.1",
     "react": "^16.10.2",
     "react-color": "^2.17.3",
@@ -20,11 +22,13 @@
     "react-sortable-hoc": "^1.10.1",
     "react-transition-group": "^4.3.0"
   },
+  "homepage": "https://ofrankowska.github.io/react-colors",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
