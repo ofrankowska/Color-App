@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/react-colors/static/css/main.2f78f16b.chunk.css",
+    "main.js": "/react-colors/static/js/main.4ecbf4fc.chunk.js",
+    "main.js.map": "/react-colors/static/js/main.4ecbf4fc.chunk.js.map",
+    "runtime-main.js": "/react-colors/static/js/runtime-main.55bc9266.js",
+    "runtime-main.js.map": "/react-colors/static/js/runtime-main.55bc9266.js.map",
+    "static/css/2.292c8731.chunk.css": "/react-colors/static/css/2.292c8731.chunk.css",
+    "static/js/2.086df422.chunk.js": "/react-colors/static/js/2.086df422.chunk.js",
+    "static/js/2.086df422.chunk.js.map": "/react-colors/static/js/2.086df422.chunk.js.map",
+    "index.html": "/react-colors/index.html",
+    "precache-manifest.15fba7a5d674e41ce104b60c1b15451e.js": "/react-colors/precache-manifest.15fba7a5d674e41ce104b60c1b15451e.js",
+    "service-worker.js": "/react-colors/service-worker.js",
+    "static/css/2.292c8731.chunk.css.map": "/react-colors/static/css/2.292c8731.chunk.css.map",
+    "static/css/main.2f78f16b.chunk.css.map": "/react-colors/static/css/main.2f78f16b.chunk.css.map",
+    "static/media/Confetti-Doodles.svg": "/react-colors/static/media/Confetti-Doodles.e2d26d84.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.55bc9266.js",
+    "static/css/2.292c8731.chunk.css",
+    "static/js/2.086df422.chunk.js",
+    "static/css/main.2f78f16b.chunk.css",
+    "static/js/main.4ecbf4fc.chunk.js"
+  ]
+}
